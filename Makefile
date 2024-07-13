@@ -1,11 +1,11 @@
 
 default: bino
 
-bino.o: bino.c
-	gcc -c bino.c
+bino.o: src/bino.c
+	gcc -c src/bino.c
 
 bino: bino.o
-	gcc -o bino bino.c
+	gcc -o bino bino.o
 
 clean:
 	rm -f bino.o
