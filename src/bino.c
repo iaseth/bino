@@ -3,6 +3,13 @@
 
 
 
+void zerome (unsigned char *buffer, int length) {
+	for (int i = 0; i < length; ++i) {
+		buffer[i] = 0;
+	}
+}
+
+
 int main (int argc, char const *argv[])
 {
 	int number_of_bytes_to_read = 16;
@@ -51,6 +58,8 @@ int main (int argc, char const *argv[])
 		if (result == 0) {
 			printf("End of file reached!\n");
 			break;
+		} else {
+			zerome(buffer, buffer_size);
 		}
 	}
 
