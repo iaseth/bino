@@ -35,7 +35,7 @@ int main (int argc, char const *argv[])
 	for (int i = 0; i < number_of_times_to_read; ++i) {
 		printf("Line %3d [%d]:", i+1, number_of_bytes_to_read);
 
-		fread(buffer, buffer_size, 1, ptr);
+		int result = fread(buffer, buffer_size, 1, ptr);
 		for (int j = 0; j < buffer_size; j++) {
 			if (j > 0 && j % 4 == 0) {
 				printf(" . ");
@@ -47,6 +47,11 @@ int main (int argc, char const *argv[])
 		}
 
 		printf("\n");
+
+		if (result == 0) {
+			printf("End of file reached!\n");
+			break;
+		}
 	}
 
 	fclose(ptr);
